@@ -9,10 +9,9 @@ public class AccountTest {
 
     @Test
 	//@Disabled
-    public void depositAnAmountToIncreaseTheBalance() {
-        Account account = new Account();
+    public void initialAccount_shouldHaveZeroBalance() {
         //account.deposit(10);
-        assertThat(account.balance()).isEqualTo(0);
+        assertThat(Account.emptyAccount().balance()).isEqualTo(0);
         //assertThat("your first test").isBlank();
 
     }
