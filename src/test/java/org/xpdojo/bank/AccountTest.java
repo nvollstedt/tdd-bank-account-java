@@ -30,4 +30,12 @@ public class AccountTest {
         account.deposit(20);
         assertThat(account.balance()).isEqualTo(30);
     }
+
+    @Test
+    public void withdrawAmount() {
+        Account account = Account.emptyAccount();
+        account.deposit(10);
+        account.withdraw(10);
+        assertThat(account.balance()).isEqualTo(0);
+    }
 }

@@ -16,4 +16,8 @@ public class Account {
         balance += i;
         //self.
     }
+    public int withdraw(int i) {
+        balance -=i;
+        return balance;
+    }
 }
