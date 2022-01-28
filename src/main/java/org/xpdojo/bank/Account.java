@@ -28,4 +28,10 @@ public class Account {
 
         return operationPermitted;
     }
+
+    public void transfer(int i,Account accountReceiver) {
+        if (withdraw(i)==TRUE) {
+            accountReceiver.deposit(i);
+        }
+    }
 }

@@ -46,4 +46,23 @@ public class AccountTest {
         account.deposit(10);
         assertThat(account.withdraw(11)).isEqualTo(FALSE);
     }
+
+    @Test
+    public void transferAmount() {
+        Account accountSender = Account.emptyAccount();
+        Account accountReceiver = Account.emptyAccount();
+        accountSender.deposit(10);
+        accountSender.transfer(10,accountReceiver);
+        assertThat(accountReceiver.balance()).isEqualTo(10);
+    }
+
+    @Test
+    public void transferExceedingAmount() {
+        Account accountSender = Account.emptyAccount();
+        Account accountReceiver = Account.emptyAccount();
+        accountSender.deposit(10);
+        accountSender.transfer(11,accountReceiver);
+        assertThat(accountReceiver.balance()).isEqualTo(0);
+    }
+
 }
