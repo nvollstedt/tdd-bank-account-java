@@ -3,6 +3,8 @@ package org.xpdojo.bank;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import static java.lang.Boolean.FALSE;
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AccountTest {
@@ -37,5 +39,11 @@ public class AccountTest {
         account.deposit(10);
         account.withdraw(10);
         assertThat(account.balance()).isEqualTo(0);
+    }
+    @Test
+    public void withdrawExceedingAmount() {
+        Account account = Account.emptyAccount();
+        account.deposit(10);
+        assertThat(account.withdraw(11)).isEqualTo(FALSE);
     }
 }

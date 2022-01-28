@@ -1,5 +1,8 @@
 package org.xpdojo.bank;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class Account {
 
     private int balance;
@@ -16,8 +19,13 @@ public class Account {
         balance += i;
         //self.
     }
-    public int withdraw(int i) {
-        balance -=i;
-        return balance;
+    public boolean withdraw(int i) {
+        boolean operationPermitted=FALSE;
+        if (balance>=i) {
+            balance -=i;
+            operationPermitted=TRUE;
+        }
+
+        return operationPermitted;
     }
 }
